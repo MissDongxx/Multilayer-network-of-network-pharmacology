@@ -3,6 +3,6 @@ We try to explore the application of multilayer network in Network Pharmacology 
 The depository consists of Related data and Method. In Methods part, we give the detailed process of methos proposed by our paper, and you can find the related data in different appendix folders of Related data.<br>
 We hope the above materials will be helpful.<br>
 
-==============================================================================
+=======================================================================
 
 If you have any questions, please contact sara0000@csu.edu.cn.<br>
