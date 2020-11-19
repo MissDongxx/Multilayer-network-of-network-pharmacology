@@ -1,0 +1,259 @@
+hsa00982:Drug metabolism - cytochrome P450
+hsa00983:Drug metabolism - other enzymes
+hsa00830:Retinol metabolism
+R-HSA-156588:R-HSA-156588
+hsa05204:Chemical carcinogenesis
+hsa00140:Steroid hormone biosynthesis
+hsa00053:Ascorbate and aldarate metabolism
+hsa05161:Hepatitis B
+hsa00040:Pentose and glucuronate interconversions
+hsa00860:Porphyrin and chlorophyll metabolism
+hsa04668:TNF signaling pathway
+hsa00590:Arachidonic acid metabolism
+hsa00980:Metabolism of xenobiotics by cytochrome P450
+hsa05215:Prostate cancer
+hsa05200:Pathways in cancer
+hsa04210:Apoptosis
+hsa05164:Influenza A
+hsa04917:Prolactin signaling pathway
+hsa04660:T cell receptor signaling pathway
+hsa05212:Pancreatic cancer
+hsa04068:FoxO signaling pathway
+hsa04066:HIF-1 signaling pathway
+hsa05160:Hepatitis C
+hsa05145:Toxoplasmosis
+hsa05230:Central carbon metabolism in cancer
+hsa05214:Glioma
+hsa01100:Metabolic pathways
+hsa05142:Chagas disease (American trypanosomiasis)
+hsa04620:Toll-like receptor signaling pathway
+hsa05162:Measles
+hsa04370:VEGF signaling pathway
+hsa05210:Colorectal cancer
+hsa05223:Non-small cell lung cancer
+hsa05140:Leishmaniasis
+hsa05205:Proteoglycans in cancer
+hsa04115:p53 signaling pathway
+hsa05219:Bladder cancer
+hsa05222:Small cell lung cancer
+hsa04722:Neurotrophin signaling pathway
+hsa05221:Acute myeloid leukemia
+hsa05218:Melanoma
+R-HSA-74259:R-HSA-74259
+hsa05220:Chronic myeloid leukemia
+R-HSA-211935:R-HSA-211935
+R-HSA-211981:R-HSA-211981
+hsa04931:Insulin resistance
+hsa05213:Endometrial cancer
+hsa04664:Fc epsilon RI signaling pathway
+hsa04932:Non-alcoholic fatty liver disease (NAFLD)
+hsa04380:Osteoclast differentiation
+hsa04975:Fat digestion and absorption
+hsa04662:B cell receptor signaling pathway
+hsa05134:Legionellosis
+hsa04012:ErbB signaling pathway
+hsa04930:Type II diabetes mellitus
+R-HSA-211999:R-HSA-211999
+R-HSA-3299685:R-HSA-3299685
+hsa00591:Linoleic acid metabolism
+hsa04071:Sphingolipid signaling pathway
+hsa05133:Pertussis
+hsa04151:PI3K-Akt signaling pathway
+R-HSA-211958:R-HSA-211958
+hsa04919:Thyroid hormone signaling pathway
+hsa04014:Ras signaling pathway
+hsa05166:HTLV-I infection
+R-HSA-2142816:R-HSA-2142816
+hsa04621:NOD-like receptor signaling pathway
+hsa04726:Serotonergic synapse
+hsa05152:Tuberculosis
+hsa05211:Renal cell carcinoma
+hsa00760:Nicotinate and nicotinamide metabolism
+hsa05146:Amoebiasis
+hsa04915:Estrogen signaling pathway
+hsa05169:Epstein-Barr virus infection
+hsa05321:Inflammatory bowel disease (IBD)
+hsa04910:Insulin signaling pathway
+hsa04150:mTOR signaling pathway
+hsa05014:Amyotrophic lateral sclerosis (ALS)
+hsa04062:Chemokine signaling pathway
+hsa04914:Progesterone-mediated oocyte maturation
+hsa04622:RIG-I-like receptor signaling pathway
+hsa05231:Choline metabolism in cancer
+hsa05168:Herpes simplex infection
+R-HSA-2142691:R-HSA-2142691
+R-HSA-111459:R-HSA-111459
+hsa04960:Aldosterone-regulated sodium reabsorption
+hsa04650:Natural killer cell mediated cytotoxicity
+hsa00100:Steroid biosynthesis
+hsa04920:Adipocytokine signaling pathway
+R-HSA-2426168:R-HSA-2426168
+R-HSA-2142770:R-HSA-2142770
+R-HSA-975634:R-HSA-975634
+hsa04550:Signaling pathways regulating pluripotency of stem cells
+R-HSA-211979:R-HSA-211979
+hsa05203:Viral carcinogenesis
+hsa05202:Transcriptional misregulation in cancer
+R-HSA-1433557:R-HSA-1433557
+hsa05144:Malaria
+hsa04010:MAPK signaling pathway
+R-HSA-2142670:R-HSA-2142670
+R-HSA-5603027:R-HSA-5603027
+R-HSA-4420097:R-HSA-4420097
+hsa04972:Pancreatic secretion
+hsa05132:Salmonella infection
+hsa05010:Alzheimer's disease
+hsa02010:ABC transporters
+R-HSA-6807062:R-HSA-6807062
+R-HSA-6807047:R-HSA-6807047
+hsa05131:Shigellosis
+R-HSA-2179392:R-HSA-2179392
+R-HSA-982772:R-HSA-982772
+hsa04064:NF-kappa B signaling pathway
+hsa04152:AMPK signaling pathway
+hsa05323:Rheumatoid arthritis
+hsa05206:MicroRNAs in cancer
+hsa05120:Epithelial cell signaling in Helicobacter pylori infection
+hsa05216:Thyroid cancer
+R-HSA-1482922:R-HSA-1482922
+R-HSA-450341:R-HSA-450341
+hsa04912:GnRH signaling pathway
+hsa04510:Focal adhesion
+hsa04976:Bile secretion
+hsa04913:Ovarian steroidogenesis
+R-HSA-912526:R-HSA-912526
+R-HSA-2142850:R-HSA-2142850
+R-HSA-111463:R-HSA-111463
+R-HSA-111464:R-HSA-111464
+hsa04015:Rap1 signaling pathway
+R-HSA-1482925:R-HSA-1482925
+R-HSA-1482801:R-HSA-1482801
+R-HSA-5673001:R-HSA-5673001
+R-HSA-186763:R-HSA-186763
+R-HSA-191273:R-HSA-191273
+hsa04725:Cholinergic synapse
+hsa00592:alpha-Linolenic acid metabolism
+R-HSA-5660668:R-HSA-5660668
+R-HSA-5674499:R-HSA-5674499
+R-HSA-189483:R-HSA-189483
+R-HSA-2142688:R-HSA-2142688
+R-HSA-2142712:R-HSA-2142712
+R-HSA-5621575:R-HSA-5621575
+R-HSA-171007:R-HSA-171007
+R-HSA-70153:R-HSA-70153
+hsa04670:Leukocyte transendothelial migration
+R-HSA-375165:R-HSA-375165
+R-HSA-114604:R-HSA-114604
+hsa04320:Dorso-ventral axis formation
+hsa05416:Viral myocarditis
+R-HSA-179812:R-HSA-179812
+R-HSA-75158:R-HSA-75158
+R-HSA-5603029:R-HSA-5603029
+hsa04630:Jak-STAT signaling pathway
+R-HSA-512988:R-HSA-512988
+R-HSA-5637810:R-HSA-5637810
+R-HSA-2162123:R-HSA-2162123
+R-HSA-168638:R-HSA-168638
+R-HSA-392451:R-HSA-392451
+hsa00380:Tryptophan metabolism
+R-HSA-180336:R-HSA-180336
+hsa04540:Gap junction
+R-HSA-1482788:R-HSA-1482788
+R-HSA-198753:R-HSA-198753
+R-HSA-881907:R-HSA-881907
+R-HSA-428790:R-HSA-428790
+R-HSA-2428933:R-HSA-2428933
+R-HSA-111458:R-HSA-111458
+R-HSA-265473:R-HSA-265473
+R-HSA-2559582:R-HSA-2559582
+R-HSA-5674135:R-HSA-5674135
+hsa05143:African trypanosomiasis
+hsa05020:Prion diseases
+hsa04923:Regulation of lipolysis in adipocytes
+hsa00565:Ether lipid metabolism
+R-HSA-1236382:R-HSA-1236382
+R-HSA-74749:R-HSA-74749
+R-HSA-110056:R-HSA-110056
+R-HSA-1482839:R-HSA-1482839
+R-HSA-194223:R-HSA-194223
+hsa04110:Cell cycle
+R-HSA-2586552:R-HSA-2586552
+R-HSA-1483166:R-HSA-1483166
+hsa04750:Inflammatory mediator regulation of TRP channels
+R-HSA-1810476:R-HSA-1810476
+R-HSA-381426:R-HSA-381426
+hsa04916:Melanogenesis
+R-HSA-69273:R-HSA-69273
+R-HSA-73817:R-HSA-73817
+R-HSA-73621:R-HSA-73621
+R-HSA-2219530:R-HSA-2219530
+hsa00480:Glutathione metabolism
+R-HSA-1660499:R-HSA-1660499
+hsa04270:Vascular smooth muscle contraction
+R-HSA-5668599:R-HSA-5668599
+R-HSA-198323:R-HSA-198323
+R-HSA-933542:R-HSA-933542
+R-HSA-1257604:R-HSA-1257604
+hsa04921:Oxytocin signaling pathway
+R-HSA-5674400:R-HSA-5674400
+R-HSA-5673000:R-HSA-5673000
+R-HSA-162658:R-HSA-162658
+R-HSA-4419969:R-HSA-4419969
+R-HSA-140534:R-HSA-140534
+hsa04977:Vitamin digestion and absorption
+R-HSA-2428928:R-HSA-2428928
+hsa00232:Caffeine metabolism
+R-HSA-3371453:R-HSA-3371453
+hsa04520:Adherens junction
+hsa04922:Glucagon signaling pathway
+R-HSA-1963640:R-HSA-1963640
+hsa04611:Platelet activation
+hsa04730:Long-term depression
+R-HSA-1912408:R-HSA-1912408
+hsa05016:Huntington's disease
+R-HSA-210745:R-HSA-210745
+R-HSA-448706:R-HSA-448706
+R-HSA-112412:R-HSA-112412
+hsa04810:Regulation of actin cytoskeleton
+R-HSA-2559585:R-HSA-2559585
+R-HSA-2424491:R-HSA-2424491
+R-HSA-445989:R-HSA-445989
+R-HSA-111465:R-HSA-111465
+R-HSA-210993:R-HSA-210993
+hsa00330:Arginine and proline metabolism
+hsa04024:cAMP signaling pathway
+hsa04623:Cytosolic DNA-sensing pathway
+R-HSA-1250196:R-HSA-1250196
+R-HSA-381340:R-HSA-381340
+hsa04720:Long-term potentiation
+R-HSA-381771:R-HSA-381771
+R-HSA-69416:R-HSA-69416
+R-HSA-74751:R-HSA-74751
+R-HSA-3371378:R-HSA-3371378
+R-HSA-69541:R-HSA-69541
+R-HSA-198203:R-HSA-198203
+R-HSA-5218900:R-HSA-5218900
+R-HSA-445144:R-HSA-445144
+R-HSA-5218921:R-HSA-5218921
+hsa00230:Purine metabolism
+R-HSA-383280:R-HSA-383280
+hsa04973:Carbohydrate digestion and absorption
+hsa04666:Fc gamma R-mediated phagocytosis
+R-HSA-5628897:R-HSA-5628897
+R-HSA-912631:R-HSA-912631
+hsa01130:Biosynthesis of antibiotics
+R-HSA-5675221:R-HSA-5675221
+R-HSA-202733:R-HSA-202733
+R-HSA-180292:R-HSA-180292
+R-HSA-1059683:R-HSA-1059683
+R-HSA-376172:R-HSA-376172
+R-HSA-5655291:R-HSA-5655291
+R-HSA-5603041:R-HSA-5603041
+R-HSA-5602498:R-HSA-5602498
+R-HSA-193368:R-HSA-193368
+R-HSA-174800:R-HSA-174800
+R-HSA-5679090:R-HSA-5679090
+R-HSA-114294:R-HSA-114294
+R-HSA-141333:R-HSA-141333
+R-HSA-5638303:R-HSA-5638303
+R-HSA-111457:R-HSA-111457

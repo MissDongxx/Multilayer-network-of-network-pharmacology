@@ -1,0 +1,253 @@
+H01508 Salivary gland cancer (1)  
+
+  hsa:4916 NTRK3; neurotrophic receptor tyrosine kinase 3
+
+H00043 Neuroblastoma (3)  
+
+  hsa:4914 NTRK1; neurotrophic receptor tyrosine kinase 1
+  hsa:4915 NTRK2; neurotrophic receptor tyrosine kinase 2
+  hsa:4916 NTRK3; neurotrophic receptor tyrosine kinase 3
+
+H00032 Thyroid cancer (1)  
+
+  hsa:4914 NTRK1; neurotrophic receptor tyrosine kinase 1
+
+H00002 T-cell acute lymphoblastic leukemia (1)  
+
+  hsa:4066 LYL1; LYL1 basic helix-loop-helix family member
+
+H00080 Systemic lupus erythematosus (1)  
+
+  hsa:5133 PDCD1; programmed cell death 1
+
+H01516 Adult onset Still disease (1)  
+
+  hsa:4210 MEFV; MEFV innate immuity regulator, pyrin
+
+H00092 T-B-Severe combined immunodeficiency (1)  [path:hsa05340] 
+
+  hsa:100 ADA; adenosine deaminase
+
+H02309 Adenosine deaminase deficiency (1)  
+
+  hsa:100 ADA; adenosine deaminase
+
+H00101 Other phagocyte defects (1)  
+
+  hsa:1130 LYST; lysosomal trafficking regulator
+
+H02021 Chediak-Higashi syndrome (1)  
+
+  hsa:1130 LYST; lysosomal trafficking regulator
+
+H00107 Other well-defined immunodeficiency syndromes (1)  
+
+  hsa:4068 SH2D1A; SH2 domain containing 1A
+
+H01969 X-linked lymphoproliferative syndrome (1)  [path:hsa04650] 
+
+  hsa:4068 SH2D1A; SH2 domain containing 1A
+
+H00288 Familial Mediterranean fever (1)  [path:hsa04621] 
+
+  hsa:4210 MEFV; MEFV innate immuity regulator, pyrin
+
+H01812 Rasmussen encephalitis (1)  [path:hsa04660] 
+
+  hsa:5133 PDCD1; programmed cell death 1
+
+H00058 Amyotrophic lateral sclerosis (ALS) (1)  
+
+  hsa:5216 PFN1; profilin 1
+
+H00068 Leber hereditary optic atrophy (1)  [path:hsa00190] 
+
+  hsa:4540 ND5; NADH dehydrogenase, subunit 5 (complex I)
+
+H00606 Early infantile epileptic encephalopathy (1)  
+
+  hsa:4915 NTRK2; neurotrophic receptor tyrosine kinase 2
+
+H00527 Retinitis pigmentosa (1)  [path:hsa04744] 
+
+  hsa:5145 PDE6A; phosphodiesterase 6A
+
+H00481 Cone-rod dystrophy and cone dystrophy (1)  [path:hsa00230] 
+
+  hsa:5146 PDE6C; phosphodiesterase 6C
+
+H00971 Achromatopsia (1)  
+
+  hsa:5146 PDE6C; phosphodiesterase 6C
+
+H01020 Optic atrophy (1)  
+
+  hsa:4976 OPA1; OPA1 mitochondrial dynamin like GTPase
+
+H01202 Cataract (1)  
+
+  hsa:4810 NHS; NHS actin remodeling regulator
+
+H00265 Hereditary sensory and autonomic neuropathy (1)  [path:hsa04144 hsa04010 hsa04210 hsa04722] 
+
+  hsa:4914 NTRK1; neurotrophic receptor tyrosine kinase 1
+
+H01490 Multiple sclerosis (1)  
+
+  hsa:5133 PDCD1; programmed cell death 1
+
+H01836 Congenital pain insensitivity with anhidrosis (1)  [path:hsa04722] 
+
+  hsa:4914 NTRK1; neurotrophic receptor tyrosine kinase 1
+
+H00801 Familial thoracic aortic aneurysm and dissection (1)  
+
+  hsa:4015 LOX; lysyl oxidase
+
+H00664 Anemia due to disorders of glycolytic enzymes (1)  [path:hsa00010] 
+
+  hsa:5230 PGK1; phosphoglycerate kinase 1
+
+H02123 Celiac disease (1)  
+
+  hsa:4650 MYO9B; myosin IXB
+
+H00624 Progressive familial intrahepatic cholestasis (1)  
+
+  hsa:5205 ATP8B1; ATPase phospholipid transporting 8B1
+
+H02192 Benign recurrent intrahepatic cholestasis (1)  
+
+  hsa:5205 ATP8B1; ATPase phospholipid transporting 8B1
+
+H02193 Intrahepatic cholestasis of pregnancy (1)  
+
+  hsa:5205 ATP8B1; ATPase phospholipid transporting 8B1
+
+H00241 Combined proximal and distal renal tubular acidosis (1)  [path:hsa04964 hsa04966] 
+
+  hsa:760 CA2; carbonic anhydrase 2
+
+H00563 Emery-Dreifuss muscular dystrophy (1)  
+
+  hsa:2010 EMD; emerin
+
+H01229 Inclusion body myopathy 3 (1)  [path:hsa04530] 
+
+  hsa:4620 MYH2; myosin heavy chain 2
+
+H00072 Pyruvate dehydrogenase complex deficiency (2)  [path:hsa00620 hsa00010] 
+
+  hsa:5160 PDHA1; pyruvate dehydrogenase E1 alpha 1 subunit
+  hsa:5162 PDHB; pyruvate dehydrogenase E1 beta subunit
+
+H01997 Pyruvate dehydrogenase E1-alpha deficiency (1)  [path:hsa00010 hsa00620] 
+
+  hsa:5160 PDHA1; pyruvate dehydrogenase E1 alpha 1 subunit
+
+H01998 Pyruvate dehydrogenase E1-beta deficiency (1)  [path:hsa00010 hsa00620] 
+
+  hsa:5162 PDHB; pyruvate dehydrogenase E1 beta subunit
+
+H00069 Glycogen storage disease (1)  [path:hsa00010] 
+
+  hsa:5213 PFKM; phosphofructokinase, muscle
+
+H01762 Muscle glycogen storage disease (1)  [path:hsa00010] 
+
+  hsa:5213 PFKM; phosphofructokinase, muscle
+
+H01945 Glycogen storage disease type VII (1)  [path:hsa00010] 
+
+  hsa:5213 PFKM; phosphofructokinase, muscle
+
+H00146 Alpha-N-acetylgalactosaminidase deficiency (1)  [path:hsa00603 hsa04142] 
+
+  hsa:4668 NAGA; alpha-N-acetylgalactosaminidase
+
+H00422 Glycoproteinoses (1)  [path:hsa04142 hsa00603] 
+
+  hsa:4668 NAGA; alpha-N-acetylgalactosaminidase
+
+H01113 Acid phosphatase deficiency (1)  [path:hsa00740 hsa04142] 
+
+  hsa:53 ACP2; acid phosphatase 2, lysosomal
+
+H00473 Mitochondrial complex I deficiency (4)  [path:hsa00190] 
+
+  hsa:4722 NDUFS3; NADH:ubiquinone oxidoreductase core subunit S3
+  hsa:4726 NDUFS6; NADH:ubiquinone oxidoreductase subunit S6
+  hsa:4540 ND5; NADH dehydrogenase, subunit 5 (complex I)
+  hsa:4720 NDUFS2; NADH:ubiquinone oxidoreductase core subunit S2
+
+H00469 Mitochondrial DNA depletion syndrome (1)  
+
+  hsa:4976 OPA1; OPA1 mitochondrial dynamin like GTPase
+
+H01347 MELAS Syndrome (1)  [path:hsa00190] 
+
+  hsa:4540 ND5; NADH dehydrogenase, subunit 5 (complex I)
+
+H01354 Leigh syndrome (1)  [path:hsa00190] 
+
+  hsa:4722 NDUFS3; NADH:ubiquinone oxidoreductase core subunit S3
+
+H01355 Kearns-Sayre syndrome (1)  [path:hsa00190] 
+
+  hsa:4540 ND5; NADH dehydrogenase, subunit 5 (complex I)
+
+H01356 Myoclonic Epilepsy and Ragged-Red Fiber Disease (1)  [path:hsa00190] 
+
+  hsa:4540 ND5; NADH dehydrogenase, subunit 5 (complex I)
+
+H00436 Osteopetrosis (1)  
+
+  hsa:760 CA2; carbonic anhydrase 2
+
+H00482 Brachydactyly (1)  
+
+  hsa:4920 ROR2; receptor tyrosine kinase like orphan receptor 2
+
+H00511 Short rib-polydactyly syndrome (1)  
+
+  hsa:4750 NEK1; NIMA related kinase 1
+
+H00521 Cleidocranial dysplasia (1)  
+
+  hsa:860 RUNX2; RUNX family transcription factor 2
+
+H02211 Acrodysostosis (1)  [path:hsa04928 hsa04024] 
+
+  hsa:5144 PDE4D; phosphodiesterase 4D
+
+H00777 SEMD, short limb-hand type (1)  
+
+  hsa:4921 DDR2; discoidin domain receptor tyrosine kinase 2
+
+H02157 Short-rib thoracic dysplasia (1)  
+
+  hsa:4750 NEK1; NIMA related kinase 1
+
+H00714 Vohwinkel syndrome (1)  
+
+  hsa:4014 LORICRIN; loricrin cornified envelope precursor protein
+
+H00464 Nail-patella syndrome (1)  
+
+  hsa:4010 LMX1B; LIM homeobox transcription factor 1 beta
+
+H00485 Robinow syndrome (1)  [path:hsa04310] 
+
+  hsa:4920 ROR2; receptor tyrosine kinase like orphan receptor 2
+
+H00811 Distal arthrogryposis (1)  [path:hsa04530] 
+
+  hsa:4621 MYH3; myosin heavy chain 3
+
+H01292 Nance-Horan syndrome (1)  
+
+  hsa:4810 NHS; NHS actin remodeling regulator
+
+H02310 Renal tubular acidosis (1)  
+
+  hsa:760 CA2; carbonic anhydrase 2
