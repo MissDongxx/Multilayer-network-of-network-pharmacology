@@ -1,0 +1,120 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+import bisect
+import csv
+import unicodedata
+#global tarresult
+
+def floor(i) :
+    ## 判断节点所在层数
+    i_floor = 0
+    if i < clenth :
+        i_foor = 1
+    elif i >=clenth and i < clenth + tlenth :
+        i_foor = 2
+    elif i >= clenth + tlenth and i < len(c)-plenth :
+        i_floor = 3
+    else :
+        i_floor = 4
+    return i_floor
+
+def possibility(i,link) :
+    ## 节点i邻居节点的转移概率矩阵
+    a1 = []
+    a2 = [] # 不能采用 a1=a2=a3=[]的格式，因为这样的话三者指向同一个位置
+    a3 = [] #创建三个list来存储不同类型的邻居节点
+    Q = 0
+    Q1 = 0
+    λ = random.uniform(0, 0.5)  #参数λ 表示从节点i走到同层不跨层节点的概率
+    μ = random.uniform(0, 1) # 参数μ 表示走到不同层概率
+    #p = link[i] # 节点i的邻接矩阵
+    for ele in range(len(link[i])) :
+        if link[i][ele] != 0: # _ 指代link数组中第i行每一个元素
+            if floor(i) != floor(ele) :  # 不同层
+                a3.append(ele)
+            else :  #同一层 else 
+                for e in range(len(link[ele])) : # 判断ele是否是跨层节点
+                    if link[ele][e] != 0 :
+                        if floor(ele) != floor(e) : 
+                            a2.append(ele) ## 如果ele的邻居节点中有不同层的，说明ele属于层间节点
+                            break
+    
+                if e == len(link[ele])-1 : # 若 ele的邻居节点中没有不同层的，则不属于跨层节点
+                    a1.append(ele) ## ele属于同层节点，且不属于层间连接节点
+                
+    #print(a1,a2,a3)
+    Q = len(a1) 
+    Q1 = len(a3) + len(a2) 
+    for _ in range(len(a1)) :
+        link[i][a1[_]] = λ * μ/ Q
+        #print(a1[_],link[i][a1[_]])
+    for _ in range(len(a2)) :
+        link[i][a2[_]] = (1 - λ) * μ/ Q1
+    for _ in range(len(a3)) :
+        link[i][a3[_]] = (1 - λ) * (1 - μ)/ Q1
+    return link
+
+def new_link(link) :
+    for _ in range(len(c)) :
+        possibility(_,link)
+    return link
+
+def main() :
+    lenth = len(c)
+    link1 = link
+    link1 = new_link(link1) ## 将原来的 0，1 矩阵转为相应的概率矩阵
+    #计算从chemical到disease的游走过程中，每个target的被游走的概率
+    tartimes = dict()
+    # 定义字典，统计target被游走的次数
+    
+    for _ in range(10000) :
+        
+        while True:
+            oldPosition = random.randint(0,clenth)
+            if (max(link1[oldPosition]) > 0) :
+                break
+        # 随机定义一个起始点，范围在0-clength
+        #print(oldPosition)
+        tartimes[oldPosition] = tartimes.get(oldPosition,0) + 1
+
+        for i in range(1000) :
+            #print(oldPosition)
+            #print(np.cumsum(link1[oldPosition,:]))
+            maxnum = max(np.cumsum(link1[oldPosition]))
+            #print(maxnum)
+            # oldPosition 所在的每一行进行依次累加,maxnum为累加后该行的最大值
+            #print(random.randint(0,maxnum))
+            newPosition = bisect.bisect_left(np.cumsum(link1[oldPosition]),random.uniform(maxnum,0))
+            #print(newPosition)
+            # 取该行中的任意值，并返回任意值所在的位置，作为下一次游走访问的位置
+            tartimes[newPosition] = tartimes.get(newPosition,0) + 1
+
+            if  newPosition >= len(c)-dlenth : # 游走到disease层时吸收，从chemical层重新开始
+                while True:
+                    newPosition = random.randint(0,clenth)
+                    if (max(link1[newPosition]) > 0) and newPosition != oldPosition:
+                        break
+            #相当于吸收了，当游走到disease节点，就返回chemical重新开始
+            #若还没到disease，则继续游走
+
+            oldPosition = newPosition
+
+    result = sorted([(v,k) for k,v in tartimes.items()],reverse=True) 
+    tarresult = list()
+    with open(r'E:\Anaconda\PaperTest\data\Chaihu\tarresult.txt','w+') as f :
+        for v,k in result :
+            #print((k,v))
+            #if k >= clenth and k < clenth + tlenth and v >= 1:
+            if k >= clenth and k < clenth + tlenth :
+                tarresult.append((k,v))
+                f.writelines(str(k) + '\t' + str(v) +'\n')
+            if k < clenth :
+                print(k,v)
+                #f.write((k,v))
+        print(tarresult,len(tarresult))
+    
+       
+
+if __name__ == '__main__' :
+    main()

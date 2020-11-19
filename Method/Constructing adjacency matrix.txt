@@ -1,0 +1,153 @@
+# compound's id 
+chemical=open(r'..\compound.txt','r')
+chems=chemical.readlines()
+c= list()
+for chem in chems[1:] :
+    chem=chem.strip().split('\t')
+    if chem[1] in c:
+        continue
+    c.append(chem[1])
+clenth=len(c)
+chemical.close()
+
+
+#protein's id
+protein=open(r'..\pro.txt','r')
+pros=protein.readlines()
+for pro in pros[1:] :
+    pro=pro.strip().split('\t')
+    if pro[1] in c:
+        continue
+    c.append(pro[1])
+tlenth=len(c)-clenth
+print(tlenth)
+print(c)
+protein.close()
+
+
+# links between chemicals
+import numpy as np
+link=np.zeros([2000,2000])
+c_c=open(r'..\chem_chem_out.txt','r')
+lines=c_c.readlines()
+for line in lines[1:]:
+    line=line.strip().split()
+    #print(c.index(line[0]),c.index(line[1]))
+    link[c.index(line[0])][c.index(line[1])]=1
+    link[c.index(line[1])][c.index(line[0])]=1
+c_c.close()
+
+
+# links between chemical and protein
+chem_pro=open(r'..\chem_pro_out.txt','r')
+protein=open(r'..\pro.txt','r')
+c_ps=chem_pro.readlines()
+pros=protein.readlines()
+
+temp=''
+for c_p in c_ps :
+    c_p=c_p.strip().split('\t')
+    for pro in pros :
+        pro=pro.strip().split('\t')
+        if c_p[1] in pro :
+            #print(c_p)
+            temp=pro[1]
+            print(temp)
+            break
+    if temp!='':
+        link[c.index(c_p[0])][c.index(temp)]=1
+        link[c.index(temp)][c.index(c_p[0])]=1
+chem_pro.close()
+protein.close()
+
+
+# links between protein and protein
+p_p=open(r'..\pro_pro_out.txt','r')
+protein=open(r'..\pro.txt','r')
+lines=p_p.readlines()
+pros = protein.readlines()
+
+for line in lines:
+    line=line.strip().split('\t')
+    first = ''
+    second = ''
+    for pro in pros :
+        pro = pro.strip().split('\t')
+        if line[0] in pro :
+            first = pro[1]
+            break
+    for pro in pros :
+        pro = pro.strip().split('\t')
+        if line[1] in pro :
+            second = pro[1]
+            break
+    if first != '' and second != '' :
+        print(c.index(first),first,c.index(second),second)
+    #print(c.index(line[0]),c.index(line[1]))
+        link[c.index(first)][c.index(second)]=1
+        link[c.index(second)][c.index(first)]=1
+p_p.close()
+protein.close()
+
+pro=open(r'..\pro.txt','r')
+lines=pro.readlines()
+for line in lines:
+    line=line.split('\t')
+    print(line[1])
+pro.close()
+
+
+# links between protein and pathway
+import re
+p_path=open(r'..\protein_pathway.txt','r')
+pathway = open(r'..\pathway.txt','w',encoding = 'utf_8')
+lines=p_path.readlines()
+for line in lines[1:]:
+    line=line.strip().split('\t')
+    pathway.write(line[1]+'\n')
+    #####
+    pattern = re.compile('[1-9]')
+    m = re.search(pattern,line[1]).start()
+    path_id = 'hsa:' + line[1][m : line[1].index(':')]
+    print(path_id)
+    #####
+    if path_id not in c:
+        c.append(path_id)
+    temp = line[5].split(',')
+    #print(temp)
+    for ele in temp :
+        ele = ele.strip()
+        link[c.index(path_id)][c.index(ele)]=1
+        link[c.index(ele)][c.index(path_id)]=1
+plenth = len(c) - tlenth-clenth
+print(plenth)
+p_path.close()
+
+
+# Links between pathway and disease
+import re
+pro_dis = open(r'..\pathway_disease_raw.txt','r')
+disease = open(r'..\disease.txt','w', encoding = 'utf-8')
+lines = pro_dis.readlines()
+temp = ''
+for line in lines :
+    line=line.strip().split(' ')
+    #print(line[0])
+    if re.match('H', line[0]) and line[0] not in c:
+        temp = line[0]
+        c.append(temp)
+        disease.write(str(line) + '\n')
+    if re.match('hsa:', line[0]) and temp != '':
+        link[c.index(line[0])][c.index(temp)] = 1
+        link[c.index(temp)][c.index(line[0])] = 1
+print(c)
+dlenth = len(c) - clenth - tlenth - plenth
+print(dlenth)
+pro_dis.close()
+disease.close()
+
+
+## All elements
+['CIDs05319042', 'CIDs00064982', 'CIDs05280794', 'CIDs05281654', 'CIDs05280863', 'CIDs00389001', 'CIDs00158311', 'CIDs00117443', 'CIDs00185034', 'CIDs05319252', 'CIDs05280343', 'CIDs05280442', 'CIDs05281703', 'CIDs00821279', 'CIDs05281605', 'CIDs00156992', 'CIDs44258628', 'CIDs00188308', 'CIDs14135323', 'CIDs00373261', 'CIDs00161271', 'CIDs05322059', 'CIDs05321865', 'CIDs00124211', 'CIDs05320315', 'CIDs05320399', 'CIDs05322078', 'CIDs25721350', 'CIDs00222284', 'CIDs12303645', 'CIDs05281674', 'CIDs00159029', 'CIDs00182232', 'CIDs00072321', 'CIDs07057920', 'CIDs00638072', 'CIDs00033934', 'CIDs00160876', 'CIDs00188316', 'CIDs05365674', 'CIDs05322074', 'CIDs02608119', 'CIDs13889022', 'CIDs00091510', 'CIDs05376313', 'CIDs05319581', 'CIDs00442847', 'CIDs00285342', 'CIDs00441562', 'CIDs05312542', 'CIDs00441965', 'CIDs45479218', 'CIDs00096943', 'CIDs06438572', 'CIDs06325577', 'CIDs00073498', 'CIDs05321541', 'CIDs00004970', 'CIDs05484202', 'CIDs00193148', 'CIDs05282768', 'CIDs05280372', 'CIDs72444876', 'CIDs11438306', 'CIDs00092110', 'CIDs00064959', 'CIDs00114829', 'CIDs00064971', 'CIDs05320083', 'CIDs05318869', 'CIDs00336327', 'CIDs05317480', 'CIDs00354368', 'CIDs05280378', 'CIDs05280448', 'CIDs00439246', 'CIDs00197678', 'CIDs00480784', 'CIDs00392442', 'CIDs00480859', 'CIDs05318679', 'CIDs10881804', 'CIDs15380912', 'CIDs00637112', 'CIDs05481948', 'CIDs05281619', 'CIDs00442411', 'CIDs00162412', 'CIDs05317768', 'CIDs10542808', 'CIDs05318999', 'CIDs49856081', 'CIDs10090416', 'CIDs05319013', 'CIDs05317478', 'CIDs05317479', 'CIDs42607811', 'CIDs14604077', 'CIDs14604078', 'CIDs14604081', 'CIDs00480787', 'CIDs00503731', 'CIDs05281789', 'CIDs05481234', 'CIDs11267805', 'CIDs00503737', 'CIDs00122851', 'CIDs00195396', 'CIDs05317777', 'CIDs00124052', 'CIDs00124049', 'CIDs00480774', 'CIDs05317652', 'CIDs11558452', 'CIDs11602329', 'CIDs05317300', 'CIDs44257223', 'CIDs23724664', 'CIDs00073205', 'CIDs00928837', 'CIDs00193679', 'CIDs05318585', 'CIDs00003764', 'CIDs00480873', 'CIDs05316900', 'CIDs15228662', 'CIDs05318998', 'CIDs15228663', 'CIDs09927807', 'CIDs05318437', 'CIDs05312521', 'CIDm01666840', 'CIDs25015742', 'CIDs00268208', 'CIDs05460988', 'CIDs00177149', 'CIDs00480780', 'CIDs05481949', 'CIDs15840593', 'CIDs05317765', 'CIDs00636883', 'CIDs13965473', 'CIDs44257530', 'CIDs14769500', 'CIDs05319662?', 'CIDs00457801', 'CIDs00107982', 'CIDs00830726', 'CIDs00441756', 'CIDs05281707', 'CIDs00002353', 'CIDs00160487', 'CIDs00009064', 'CIDs12442999', 'CIDs00010146', 'CIDs00161352', 'CIDs05280537', 'CIDs05280489', 'CIDs00073160', 'CIDs10550610', 'P04141', 'Q9UC36', 'Q969T7', 'P15976', 'P11166', 'P04049', 'A0A0G2JM26', 'P18510', 'Q99816', 'Q9Y4X1', 'P11216', 'Q9HCQ8', 'P22352', 'P13569', 'Q9BYZ2', 'Q9UCR9', 'Q92819', 'O15264', 'P19525', 'P01116', 'P50750', 'P11712', 'Q96AW4', 'Q9BXR5', 'O60674', 'P27487', 'O94768', 'Q12988', 'Q92731', 'Q8IWZ8', 'O14983', 'Q96EB6', 'Q15399', 'P35968', 'Q9UMX3', 'Q24JP5', 'P40933', 'Q00059', 'P24385', 'P08069', 'P53778', 'Q04206', 'P01275', 'P14672', 'O95342', 'P49888', 'Q9NTG7', 'Q9UC68', 'P20839', 'Q02750', 'Q9UHD2', 'Q53F46', 'P05362', 'P04921', 'Q8NBP7', 'Q9HAY6', 'P27540', 'P10635', 'P01375', 'Q9BYV7', 'Q06055', 'P19838', 'Q15125', 'P20853', 'P35568', 'Q4VAU1', 'P18054', 'P04839', 'O75310', 'Q8WTV0', 'P07203', 'Q53QV2', 'Q9UC51', 'Q9NRD9', 'Q02928', 'Q14541', 'P11215', 'Q9UKM3', 'P55851', 'Q9UHR8', 'P30530', 'Q9H022', 'P02778', 'O00219', 'Q8TD08', 'Q9NRC7', 'P18283', 'P17252', 'Q96DN2', 'P42336', 'P04035', 'Q9Y5S8', 'Q9UII3', 'P26583', 'P25963', 'Q9BU99', 'Q6NVY1', 'Q96DT7', 'Q9BZM2', 'P55957', 'Q14849', 'P04054', 'Q6XR72', 'P01100', 'P0DMV8', 'P22234', 'P06858', 'P22310', 'P18031', 'Q06278', 'P01133', 'Q9UCA1', 'Q96PJ9', 'P42345', 'Q9B2X7', 'Q3SY77', 'P43490', 'P12277', 'P49840', 'Q86YL0', 'Q9Y6E7', 'Q9UQ99', 'Q8TCD5', 'Q8WUS8', 'Q9BXI3', 'Q93009', 'P35504', 'P00519', 'Q13630', 'P08581', 'O15229', 'P09874', 'Q9UEQ3', 'Q99801', 'P13500', 'P00390', 'Q96T22', 'P48736', 'Q9HAW7', 'Q53ZD9', 'P11217', 'Q9P2Y8', 'Q76MJ5', 'P14324', 'Q9NRC8', 'P22830', 'Q13787', 'P21589', 'Q6ZWL3', 'O75795', 'Q3ZCN5', 'P14635', 'P15559', 'P00491', 'P25929', 'Q5R387', 'Q9UN09', 'Q08050', 'Q9UQP9', 'Q5JUZ7', 'Q5JTC6', 'P08047', 'Q9UDX4', 'P58004', 'P40313', 'P52789', 'P35869', 'P04798', 'Q9UJN0', 'P19224', 'Q9HAW9', 'Q9NQX3', 'Q9Y2Z9', 'P09917', 'Q9UNQ0', 'Q13535', 'P11926', 'P05198', 'P15121', 'O75460', 'Q9HC84', 'Q9HB03', 'Q9Y6M5', 'Q9NPB1', 'P08253', 'O76062', 'Q16659', 'Q92839', 'Q9BXL1', 'P60568', 'P23415', 'P06400', 'P31152', 'Q96Q15', 'P33261', 'Q1HBF9', 'P28482', 'O00548', 'Q9UMN9', 'Q9H222', 'P27169', 'P31645', 'Q9HB55', 'Q9UNP5', 'Q6PJ36', 'Q7Z2J1', 'P22888', 'P05412', 'P24522', 'P05546', 'Q8NAU1', 'Q5T7T7', 'Q9NZD0', 'P49902', 'Q9UD42', 'P99999', 'Q9UC67', 'Q9NX09', 'Q9HAW8', 'Q99868', 'P36542', 'P16581', 'Q9Y4B4', 'P61073', 'P42338', 'P21397', 'Q15738', 'P54851', 'Q8N118', 'P34932', 'Q9HBH5', 'P27361', 'P14091', 'Q99626', 'O43304', 'Q9BYY7', 'Q6NUS8', 'Q9UDL5', 'Q9UJU4', 'P23769', 'P04180', 'O60656', 'Q9GZX1', 'P22301', 'Q9UDE8', 'Q15653', 'Q9Y6L6', 'Q9HBY0', 'Q14457', 'Q6ZMR3', 'P50591', 'A8MYU2', 'Q6B4V6', 'Q02509', 'P06213', 'P05113', 'Q9BZR8', 'P12268', 'P35222', 'Q05397', 'P03956', 'Q8NEB9', 'P35225', 'P30043', 'P22680', 'P46531', 'P35354', 'P19113', 'P52945', 'Q13315', 'O14763', 'P08684', 'P13584', 'P02649', 'Q96GC9', 'P00739', 'Q15831', 'P08236', 'P35408', 'Q9UBM7', 'H3BLT4', 'Q2XNF2', 'P21980', 'O60235', 'P48357', 'Q16236', 'P54855', 'P00749', 'O14684', 'Q08477', 'P21246', 'Q14434', 'Q12772', 'O15111', 'Q16880', 'Q05823', 'Q96IZ0', 'Q92583', 'Q9Y2U7', 'P05177', 'Q14145', 'P47985', 'P35367', 'O15439', 'Q96QT4', 'Q02880', 'Q16696', 'P11309', 'P59796', 'Q9H501', 'O14746', 'P06276', 'A0A0A0MTQ2', 'Q96S42', 'H0Y4K8', 'P49841', 'Q6NT55', 'Q15392', 'P14780', 'P10632', 'P01127', 'P04040', 'P28300', 'P10275', 'P50120', 'Q04721', 'O14980', 'Q9UHC9', 'O75845', 'Q16695', 'P17936', 'Q6UWM9', 'Q8IX04', 'P05164', 'P05121', 'Q9UNK4', 'Q16739', 'P47989', 'Q07817', 'P39877', 'P20700', 'Q8N4T8', 'Q9NR28', 'Q96C23', 'Q7KYX7', 'Q9NZK7', 'Q9UJ65', 'P02766', 'O00329', 'Q16518', 'P55011', 'P22309', 'P49419', 'O00443', 'Q16552', 'Q9BY64', 'Q9NPH5', 'P55055', 'P16233', 'P30405', 'Q9H4L7', 'P09211', 'O60603', 'P13726', 'P27707', 'O00300', 'P28907', 'O00750', 'P27338', 'Q15004', 'P09601', 'Q96P26', 'P51812', 'Q6W4X9', 'Q96BA0', 'P42574', 'P11802', 'Q9UCZ6', 'Q9BY44', 'O15162', 'P36969', 'P36537', 'Q9BZS1', 'P01584', 'P16662', 'Q9UIU8', 'Q9UME3', 'O15496', 'Q92503', 'Q86W10', 'P00797', 'Q9UDX3', 'U5TP13', 'Q13164', 'Q9UJ26', 'P06576', 'Q9NXB9', 'Q5VZI8', 'Q14534', 'P06493', 'Q16548', 'Q2M1V0', 'P01111', 'Q6NZY6', 'H3BVE0', 'P14060', 'P35503', 'Q9H221', 'Q96E76', 'P62753', 'P47902', 'P40763', 'P14679', 'P20813', 'P36888', 'Q8NB78', 'P48960', 'P17301', 'Q3LXA3', 'Q5TCH4', 'Q641R5', 'O60760', 'Q9H2F3', 'P08254', 'P24941', 'P16435', 'P06241', 'P49915', 'P17861', 'Q9UBK8', 'P11168', 'O15296', 'Q9NRM0', 'P05305', 'P11169', 'hsa:982', 'hsa:983', 'hsa:830', 'hsa:156588', 'hsa:5204', 'hsa:140', 'hsa:53', 'hsa:5161', 'hsa:40', 'hsa:860', 'hsa:4668', 'hsa:590', 'hsa:980', 'hsa:5215', 'hsa:5200', 'hsa:4210', 'hsa:5164', 'hsa:4917', 'hsa:4660', 'hsa:5212', 'hsa:4068', 'hsa:4066', 'hsa:5160', 'hsa:5145', 'hsa:5230', 'hsa:5214', 'hsa:1100', 'hsa:5142', 'hsa:4620', 'hsa:5162', 'hsa:4370', 'hsa:5210', 'hsa:5223', 'hsa:5140', 'hsa:5205', 'hsa:4115', 'hsa:5219', 'hsa:5222', 'hsa:4722', 'hsa:5221', 'hsa:5218', 'hsa:74259', 'hsa:5220', 'hsa:211935', 'hsa:211981', 'hsa:4931', 'hsa:5213', 'hsa:4664', 'hsa:4932', 'hsa:4380', 'hsa:4975', 'hsa:4662', 'hsa:5134', 'hsa:4012', 'hsa:4930', 'hsa:211999', 'hsa:3299685', 'hsa:591', 'hsa:4071', 'hsa:5133', 'hsa:4151', 'hsa:211958', 'hsa:4919', 'hsa:4014', 'hsa:5166', 'hsa:2142816', 'hsa:4621', 'hsa:4726', 'hsa:5152', 'hsa:5211', 'hsa:760', 'hsa:5146', 'hsa:4915', 'hsa:5169', 'hsa:5321', 'hsa:4910', 'hsa:4150', 'hsa:5014', 'hsa:4062', 'hsa:4914', 'hsa:4622', 'hsa:5231', 'hsa:5168', 'hsa:2142691', 'hsa:111459', 'hsa:4960', 'hsa:4650', 'hsa:100', 'hsa:4920', 'hsa:2426168', 'hsa:2142770', 'hsa:975634', 'hsa:4550', 'hsa:211979', 'hsa:5203', 'hsa:5202', 'hsa:1433557', 'hsa:5144', 'hsa:4010', 'hsa:2142670', 'hsa:5603027', 'hsa:4420097', 'hsa:4972', 'hsa:5132', 'hsa:5010', 'hsa:2010', 'hsa:6807062', 'hsa:6807047', 'hsa:5131', 'hsa:2179392', 'hsa:982772', 'hsa:4064', 'hsa:4152', 'hsa:5323', 'hsa:5206', 'hsa:5120', 'hsa:5216', 'hsa:1482922', 'hsa:450341', 'hsa:4912', 'hsa:4510', 'hsa:4976', 'hsa:4913', 'hsa:912526', 'hsa:2142850', 'hsa:111463', 'hsa:111464', 'hsa:4015', 'hsa:1482925', 'hsa:1482801', 'hsa:5673001', 'hsa:186763', 'hsa:191273', 'hsa:4725', 'hsa:592', 'hsa:5660668', 'hsa:5674499', 'hsa:189483', 'hsa:2142688', 'hsa:2142712', 'hsa:5621575', 'hsa:171007', 'hsa:70153', 'hsa:4670', 'hsa:375165', 'hsa:114604', 'hsa:4320', 'hsa:5416', 'hsa:179812', 'hsa:75158', 'hsa:5603029', 'hsa:4630', 'hsa:512988', 'hsa:5637810', 'hsa:2162123', 'hsa:168638', 'hsa:392451', 'hsa:380', 'hsa:180336', 'hsa:4540', 'hsa:1482788', 'hsa:198753', 'hsa:881907', 'hsa:428790', 'hsa:2428933', 'hsa:111458', 'hsa:265473', 'hsa:2559582', 'hsa:5674135', 'hsa:5143', 'hsa:5020', 'hsa:4923', 'hsa:565', 'hsa:1236382', 'hsa:74749', 'hsa:110056', 'hsa:1482839', 'hsa:194223', 'hsa:4110', 'hsa:2586552', 'hsa:1483166', 'hsa:4750', 'hsa:1810476', 'hsa:381426', 'hsa:4916', 'hsa:69273', 'hsa:73817', 'hsa:73621', 'hsa:2219530', 'hsa:480', 'hsa:1660499', 'hsa:4270', 'hsa:5668599', 'hsa:198323', 'hsa:933542', 'hsa:1257604', 'hsa:4921', 'hsa:5674400', 'hsa:5673000', 'hsa:162658', 'hsa:4419969', 'hsa:140534', 'hsa:4977', 'hsa:2428928', 'hsa:232', 'hsa:3371453', 'hsa:4520', 'hsa:4922', 'hsa:1963640', 'hsa:4611', 'hsa:4730', 'hsa:1912408', 'hsa:5016', 'hsa:210745', 'hsa:448706', 'hsa:112412', 'hsa:4810', 'hsa:2559585', 'hsa:2424491', 'hsa:445989', 'hsa:111465', 'hsa:210993', 'hsa:330', 'hsa:4024', 'hsa:4623', 'hsa:1250196', 'hsa:381340', 'hsa:4720', 'hsa:381771', 'hsa:69416', 'hsa:74751', 'hsa:3371378', 'hsa:69541', 'hsa:198203', 'hsa:5218900', 'hsa:445144', 'hsa:5218921', 'hsa:230', 'hsa:383280', 'hsa:4973', 'hsa:4666', 'hsa:5628897', 'hsa:912631', 'hsa:1130', 'hsa:5675221', 'hsa:202733', 'hsa:180292', 'hsa:1059683', 'hsa:376172', 'hsa:5655291', 'hsa:5603041', 'hsa:5602498', 'hsa:193368', 'hsa:174800', 'hsa:5679090', 'hsa:114294', 'hsa:141333', 'hsa:5638303', 'hsa:111457', 'hsa:5679096', 'hsa:264870', 'hsa:202670', 'hsa:933543', 'hsa:1989781', 'hsa:5100', 'hsa:340', 'hsa:5030', 'hsa:4060', 'hsa:171052', 'hsa:209560', 'hsa:75205', 'hsa:442742', 'hsa:564', 'H01508', 'H00043', 'H00032', 'H00002', 'H00080', 'H01516', 'H00092', 'H02309', 'H00101', 'H02021', 'H00107', 'H01969', 'H00288', 'H01812', 'H00058', 'H00068', 'H00606', 'H00527', 'H00481', 'H00971', 'H01020', 'H01202', 'H00265', 'H01490', 'H01836', 'H00801', 'H00664', 'H02123', 'H00624', 'H02192', 'H02193', 'H00241', 'H00563', 'H01229', 'H00072', 'H01997', 'H01998', 'H00069', 'H01762', 'H01945', 'H00146', 'H00422', 'H01113', 'H00473', 'H00469', 'H01347', 'H01354', 'H01355', 'H01356', 'H00436', 'H00482', 'H00511', 'H00521', 'H02211', 'H00777', 'H02157', 'H00714', 'H00464', 'H00485', 'H00811', 'H01292', 'H02310']
+
+

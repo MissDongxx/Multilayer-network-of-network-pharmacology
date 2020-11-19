@@ -1,0 +1,92 @@
+def Verify(temp) : ##用来验证筛选得到的10%的靶蛋白中有多少能被验证，且其对应的疾病是否与小柴胡对应疾病相同
+    
+    count_tar = verify_tar = 0
+    dis = {'癌': 0 ,'肝': 0 ,'肥胖': 0,'肺': 0,'免疫': 0,'胰腺': 0,'肾': 0,'胃': 0,'肠': 0,'子宫内膜异位' : 0}
+    yanzh = open(r'..\TTD\P1-05-Target_disease translator.txt','r')
+    lines = yanzh.readlines()
+
+    for ele in temp :
+        flag = flag1 = False
+        for line in lines :
+            line = line.strip().split('\t')
+            if ele[0] in line : ## 判断某个蛋白是否存在对应疾病
+                flag = True
+                for k in dis.keys() : ##存储相应疾病被访问次数
+                    if k in line[3] : ## 判断蛋白质对应的疾病是否是小柴胡汤所治疾病
+                        flag1 = True
+                        dis[k] = dis.get(k) + 1
+                        print(line)
+        if flag :
+            print(ele[0])
+            count_tar += 1
+        if flag1 :
+            verify_tar += 1
+    print(count_tar,verify_tar) ##能被验证的蛋白质数量        
+    for k,v in dis.items() :
+        print(k,v)
+
+    
+def Random_walk(unis) :
+    ### 游走结果验证
+    tarresult = open(r'..\tarresult.txt','r')
+    tars1 = tarresult.readlines()
+    temp = []
+    for tar in tars1[:42] :
+        tar = tar.strip().split('\t')
+        #print(c[int(tar[0])])
+        for uni in unis :
+            uni = uni.strip().split('\t')
+            #print(uni)
+            if c[int(tar[0])] in uni :
+                temp.append(uni)
+                break
+    Verify(temp)
+    tarresult.close()
+    print('___________________')            
+
+def Topology(unis) :
+## 基于拓扑结构筛选出来的蛋白验证
+    pro=open(r'..\String Network default node 400.csv','r')
+    tars=pro.readlines()
+    temp = []
+    for line in tars[1:43] :
+        line = line.strip().split(',')
+        #print(line[12])
+        for uni in unis :
+            uni = uni.strip().split('\t')
+            #print(uni)
+            if line[12] in uni :
+                temp.append(uni)
+                break
+    Verify(temp)
+    pro.close()
+    print('_________________________')       
+
+def Overal(unis) :
+## 总的蛋白验证
+    pro=open(r'..\pro.txt','r')
+    tars=pro.readlines()
+    temp = []
+    for line in tars :
+        line = line.strip().split('\t')
+        #print(line[1])
+        for uni in unis :
+            uni = uni.strip().split('\t')
+            #print(uni)
+            if line[1] in uni :
+                temp.append(uni)
+                break
+    Verify(temp)
+    pro.close()
+
+def main() :
+    # result check with TTD data 
+    unimap = open(r'..\TTD\P2-01-TTD_uniprot_all.txt','r')
+    unis = unimap.readlines()
+    Random_walk(unis)
+    Topology(unis)
+    Overal(unis)
+    unimap.close()
+
+if __name__ == '__main__' :
+    main()
