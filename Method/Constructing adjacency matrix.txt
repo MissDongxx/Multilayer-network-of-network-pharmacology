@@ -1,4 +1,4 @@
-# compound's id 
+# Get the compound's id 
 chemical=open(r'..\compound.txt','r')
 chems=chemical.readlines()
 c= list()
@@ -11,7 +11,7 @@ clenth=len(c)
 chemical.close()
 
 
-#protein's id
+# Get the protein's id
 protein=open(r'..\pro.txt','r')
 pros=protein.readlines()
 for pro in pros[1:] :
@@ -124,7 +124,7 @@ print(plenth)
 p_path.close()
 
 
-# Links between pathway and disease
+# Links between pathways and diseases
 import re
 pro_dis = open(r'..\pathway_disease_raw.txt','r')
 disease = open(r'..\disease.txt','w', encoding = 'utf-8')
