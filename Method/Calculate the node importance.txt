@@ -4,7 +4,6 @@ import random
 import bisect
 import csv
 import unicodedata
-#global tarresult
 
 def floor(i) :
     ## 判断节点所在层数
